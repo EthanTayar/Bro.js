@@ -134,7 +134,7 @@ export default function BroCodeSite() {
 
           <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-4">
             {commandments.map((law, index) => (
-              <div key={index} className="rounded-[1.5rem] border border-white/10 bg-white/5 p-5 hover:bg-white/[0.07] transition">
+              <div key={law} className="rounded-[1.5rem] border border-white/10 bg-white/5 p-5 hover:bg-white/[0.07] transition">
                 <div className="text-xs uppercase tracking-[0.25em] text-amber-300">Commandement {index + 1}</div>
                 <p className="mt-3 text-lg leading-8 text-zinc-100">{law}</p>
               </div>
@@ -153,14 +153,16 @@ export default function BroCodeSite() {
 
               <div className="mt-8 space-y-4">
                 <input
+                  aria-label="Résumé de la situation"
                   className="w-full rounded-2xl bg-zinc-950 border border-white/10 px-5 py-4 outline-none focus:border-amber-300/50"
                   defaultValue="Ex: Mon duo habituel était connecté mais j'ai lancé une ranked avec un autre mate. Est-ce une trahison ?"
                 />
                 <textarea
+                  aria-label="Contexte détaillé"
                   className="w-full min-h-40 rounded-2xl bg-zinc-950 border border-white/10 px-5 py-4 outline-none focus:border-amber-300/50"
                   defaultValue="Contexte : il ne m'avait pas répondu depuis 20 minutes, mais je voyais qu'il était en ligne. On avait dit la veille qu'on jouerait ensemble ce soir."
                 />
-                <button className="rounded-2xl bg-amber-300 text-zinc-950 px-6 py-4 font-bold hover:scale-[1.01] transition">
+                <button type="button" className="rounded-2xl bg-amber-300 text-zinc-950 px-6 py-4 font-bold hover:scale-[1.01] transition">
                   Demander le verdict
                 </button>
               </div>
@@ -188,8 +190,8 @@ export default function BroCodeSite() {
               <div key={category.title} className="rounded-[2rem] border border-white/10 bg-white/5 p-6">
                 <div className="text-2xl font-bold">{category.title}</div>
                 <div className="mt-4 space-y-3 text-zinc-300">
-                  {category.laws.map((law, idx) => (
-                    <div key={idx} className="rounded-2xl bg-zinc-950 border border-white/10 p-4 leading-7">{law}</div>
+                  {category.laws.map((law) => (
+                    <div key={law} className="rounded-2xl bg-zinc-950 border border-white/10 p-4 leading-7">{law}</div>
                   ))}
                 </div>
               </div>
